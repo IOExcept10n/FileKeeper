@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AESDescription" xml:space="preserve">
+    <value>Универсальный алгоритм шифрования. Позволяет эффективно защитить данные любых типов. Представляет собой симметричное шифрование, требует совпадения текстового ключа для корректной расшифровки.</value>
+  </data>
+  <data name="AESModeName" xml:space="preserve">
+    <value>AES</value>
+  </data>
+  <data name="CaesarDescription" xml:space="preserve">
+    <value>Один из самых примитивных шифров. Позволяет зашифровать только текстовую информацию. Уровень защиты очень слабый. Осуществляет сдвиг строки по алфавиту на 3 символа.</value>
+  </data>
+  <data name="CaesarModeName" xml:space="preserve">
+    <value>Шифр Цезаря</value>
+  </data>
+  <data name="CipherModeDefaultText" xml:space="preserve">
+    <value>Здесь будет краткое описание выбранного шифра</value>
+  </data>
+  <data name="CryptographyRequestLabel" xml:space="preserve">
+    <value>Что вы хотите сделать с файлами сегодня?</value>
+  </data>
+  <data name="DecryptFileText" xml:space="preserve">
+    <value>🔓Расшифровать файл</value>
+  </data>
+  <data name="EncryptFileText" xml:space="preserve">
+    <value>🔒Зашифровать файл</value>
+  </data>
+  <data name="EncryptionModeTitle" xml:space="preserve">
+    <value>Режим шифрования</value>
+  </data>
+  <data name="EncryptionOrDecryptionModeLabelText" xml:space="preserve">
+    <value>Зашифровать/Расшифровать файл</value>
+  </data>
+  <data name="EncryptionPageShellTitle" xml:space="preserve">
+    <value>Шифрование</value>
+  </data>
+  <data name="FileErrorTitle" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="FileLoaded" xml:space="preserve">
+    <value>Файл был успешно загружен!</value>
+  </data>
+  <data name="FileProgress" xml:space="preserve">
+    <value>Прогресс получения файла:</value>
+  </data>
+  <data name="FileReceivingError" xml:space="preserve">
+    <value>Ошибка при получении файла. Пожалуйста, попробуйте снова.</value>
+  </data>
+  <data name="FileResetWarning" xml:space="preserve">
+    <value>Соединение будет закрыто и код будет удалён в</value>
+  </data>
+  <data name="FileSaved" xml:space="preserve">
+    <value>Файл был успешно сохранён!</value>
+  </data>
+  <data name="FileSelectionTitle" xml:space="preserve">
+    <value>Выберите файл</value>
+  </data>
+  <data name="FileSendingErrorText" xml:space="preserve">
+    <value>Произошла ошибка при отправке файла. Пожалуйста, попробуйте снова</value>
+  </data>
+  <data name="GenerateOpenKey" xml:space="preserve">
+    <value>Сохранить открытый ключ</value>
+  </data>
+  <data name="GeneratePrivateKey" xml:space="preserve">
+    <value>Сохранить приватный ключ</value>
+  </data>
+  <data name="HomePageShellTitle" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <data name="KeyPlaceholderText" xml:space="preserve">
+    <value>Введите здесь ключ шифрования…</value>
+  </data>
+  <data name="LoadOpenKey" xml:space="preserve">
+    <value>Загрузить открытый ключ</value>
+  </data>
+  <data name="LoadPrivateKey" xml:space="preserve">
+    <value>Загрузить приватный ключ</value>
+  </data>
+  <data name="RecieveFilePageText" xml:space="preserve">
+    <value>Отсканируйте QR-код для подключения…</value>
+  </data>
+  <data name="RecieveFilePageTitle" xml:space="preserve">
+    <value>Получить файл</value>
+  </data>
+  <data name="RSADescription" xml:space="preserve">
+    <value>Ассиметричный шифр для защиты особенно важной информации. Создаёт пару из открытого и закрытого ключей. С помощью открытого можно зашифровать любой файл, закрытый в свою очередь расшифровывает его. Программа подготавливает пару ключей, которую вы можете сохранить в файл. Вы можете использовать только частный ключ для шифрования, но учтите, что частный ключ не должен публиковаться в общий доступ, так как с помощью него можно расшифровать любое сообщение, а с помощью публичного – нет.</value>
+  </data>
+  <data name="RSAModeName" xml:space="preserve">
+    <value>RSA</value>
+  </data>
+  <data name="ScanQRText" xml:space="preserve">
+    <value>Отсканируйте QR-код...</value>
+  </data>
+  <data name="SecurePageShellTitle" xml:space="preserve">
+    <value>Личные файлы</value>
+  </data>
+  <data name="SendFilePageText" xml:space="preserve">
+    <value>Выберите файл для отправки…</value>
+  </data>
+  <data name="SendFilePageTitle" xml:space="preserve">
+    <value>Отправить файл</value>
+  </data>
+  <data name="StorageWritePromptText" xml:space="preserve">
+    <value>Этому приложению требуется доступ ко внешнему хранилищу, так как файлы, которые вы шифруете, будут сохранены в папку приложения</value>
+  </data>
+  <data name="StorageWritePromptTitle" xml:space="preserve">
+    <value>Приложение просит предоставить разрешение</value>
+  </data>
+  <data name="SuccessResult" xml:space="preserve">
+    <value>Задача выполнена!</value>
+  </data>
+  <data name="TransferPageShellTitle" xml:space="preserve">
+    <value>Обмен данными</value>
+  </data>
+  <data name="VigenereDescription" xml:space="preserve">
+    <value>Позволяет зашифровать текстовую информацию с помощью ключа. Является симметричным шифром.</value>
+  </data>
+  <data name="VigenereModeName" xml:space="preserve">
+    <value>Шифр Виженера</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Добро пожаловать в FileKeeper!</value>
+  </data>
+  <data name="WelcomeDescription" xml:space="preserve">
+    <value>FileKeeper – это приложение для защиты ваших файлов. С его помощью вы можете зашифровать данные, чтобы защитить их от посторонних</value>
+  </data>
+</root>

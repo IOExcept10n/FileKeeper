@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FileKeeperMAUI"
+             x:Class="FileKeeperMAUI.SendFilePage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI"
+             Title="{x:Static local:Localization.SendFilePageTitle}">
+    <ScrollView>
+        <VerticalStackLayout Spacing="6" Padding="5">
+            <Button 
+                Text="{x:Static local:Localization.SendFilePageText}"
+                FontSize="18"
+                x:Name="FileSelectionBtn"
+                Clicked="FileSelectionBtn_Clicked"
+                HorizontalOptions="Center" />
+
+            <Label x:Name="WarningText" IsVisible="False" HorizontalTextAlignment="Center" 
+                   Text="{x:Static local:Localization.FileResetWarning}" FontSize="18" />
+
+            <zxing:BarcodeGeneratorView
+                x:Name="BarcodeGenerator"
+                zxing:Value=""
+                HeightRequest="400"
+                WidthRequest="400"
+                ForegroundColor="DarkBlue"
+                Format="QrCode"
+                Margin="3"/>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

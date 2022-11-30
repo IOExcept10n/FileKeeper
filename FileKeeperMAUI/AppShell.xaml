@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FileKeeperMAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FileKeeperMAUI"
+    Shell.FlyoutBehavior="Disabled">
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <!--
+        Shell has implicit conversion operators that enable the Shell visual hierarchy to be simplified.
+        This is possible because a subclassed Shell object can only ever contain a FlyoutItem object or a TabBar object,
+        which can only ever contain Tab objects, which can only ever contain ShellContent objects.
+
+        The implicit conversion automatically wraps the ShellContent objects below in Tab objects.
+        -->
+        <ShellContent Title="{x:Static local:Localization.HomePageShellTitle}"
+                      Icon="home.png"
+                      ContentTemplate="{DataTemplate local:MainPage}" />
+        <ShellContent Title="{x:Static local:Localization.EncryptionPageShellTitle}"
+                      Icon="shield.png"
+                      ContentTemplate="{DataTemplate local:EncryptionPage}" />
+        <ShellContent Title="{x:Static local:Localization.SendFilePageTitle}"
+                      Icon="send.png"
+                      ContentTemplate="{DataTemplate local:SendFilePage}" />
+        <ShellContent Title="{x:Static local:Localization.RecieveFilePageTitle}"
+                      Icon="download.png"
+                      ContentTemplate="{DataTemplate local:RecieveFilePage}" />
+
+    </FlyoutItem>
+
+</Shell>

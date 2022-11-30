@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FileKeeperMAUI"
+             x:Class="FileKeeperMAUI.EncryptionPage"
+             Title="{x:Static local:Localization.EncryptionPageShellTitle}">
+    <ScrollView>
+        <VerticalStackLayout Padding="6" Spacing="6">
+            <Label 
+                Text="{x:Static local:Localization.CryptographyRequestLabel}"
+                VerticalOptions="Center" 
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="What do you want to do with files?"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="6">
+                <Label
+                    Text="{x:Static local:Localization.EncryptionOrDecryptionModeLabelText}"
+                    VerticalOptions="Center" 
+                    SemanticProperties.HeadingLevel="Level2"
+                    SemanticProperties.Description="Do you want to encrypt or decrypt the file?"
+                    FontSize="18"
+                    HorizontalOptions="Center"/>
+
+                <Switch
+                    x:Name="CryptoMode"
+                    HorizontalOptions="Center"
+                    OnColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource Primary}}"
+                    ThumbColor="{AppThemeBinding Light={StaticResource Red900Accent}, Dark={StaticResource Red400Accent}}"
+                    Toggled="CryptoMode_Toggled"/>
+            </HorizontalStackLayout>
+
+
+            <Frame CornerRadius="10">
+                <Picker
+                x:Name="EncryptionModePicker"
+                Title="{x:Static local:Localization.EncryptionModeTitle}" FontSize="20"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray200}}"
+                TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                HorizontalOptions="FillAndExpand"
+                SelectedIndexChanged="EncryptionModePicker_SelectedIndexChanged"
+                HorizontalTextAlignment="Center">
+                </Picker>
+            </Frame>
+
+            <Label
+                x:Name="CipherDescription"
+                FontSize="18"
+                Text="{x:Static local:Localization.CipherModeDefaultText}"/>
+
+            <Entry
+                x:Name="CryptoKey"
+                FontSize="20"
+                IsPassword="True"
+                Keyboard="Text"
+                Placeholder="{x:Static local:Localization.KeyPlaceholderText}"
+                MaxLength="32"
+                HorizontalOptions="FillAndExpand"
+                Completed="DoCipherBtn_Clicked"
+                IsVisible="False"/>
+
+            <Frame
+            x:Name="RSAButtons">
+                <VerticalStackLayout Spacing="6">
+                    <Button
+                        x:Name="LoadOpenKey"
+                        FontSize="16" Text="{x:Static local:Localization.LoadOpenKey}" TextColor="White"
+                        SemanticProperties.Hint="Selects the file with open key"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource Primary}}"
+                        Clicked="LoadOpenKey_Clicked"
+                        HorizontalOptions="FillAndExpand"/>
+                    <Button
+                        x:Name="GenerateOpenKey"
+                        FontSize="16" Text="{x:Static local:Localization.GenerateOpenKey}" TextColor="White"
+                        SemanticProperties.Hint="Creates the file with open key"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource Primary}}"
+                        Clicked="GenerateOpenKey_Clicked"
+                        HorizontalOptions="FillAndExpand"/>
+                    <Button
+                        x:Name="LoadPrivateKey"
+                        FontSize="16" Text="{x:Static local:Localization.LoadPrivateKey}" TextColor="White"
+                        SemanticProperties.Hint="Selects the file with private key"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Red900Accent}, Dark={StaticResource Red400Accent}}"
+                        Clicked="LoadPrivateKey_Clicked"
+                        HorizontalOptions="FillAndExpand"/>
+                    <Button
+                        x:Name="GeneratePrivateKey"
+                        FontSize="16" Text="{x:Static local:Localization.GeneratePrivateKey}" TextColor="White"
+                        SemanticProperties.Hint="Creates the file with private key"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Red900Accent}, Dark={StaticResource Red400Accent}}"
+                        Clicked="GeneratePrivateKey_Clicked"
+                        HorizontalOptions="FillAndExpand"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button
+                x:Name="DoCipherBtn"
+                FontSize="20" Text="{x:Static local:Localization.EncryptFileText}" TextColor="Black"
+                SemanticProperties.Hint="Do selected actions with selected file"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Cyan100Accent}, Dark={StaticResource Cyan300Accent}}"
+                Clicked="DoCipherBtn_Clicked"
+                HorizontalOptions="FillAndExpand"/>
+            <!--<Button
+            x:Name="EcnryptBtn"
+            FontSize="20"
+            Text="{x:Static local:Localization.EncryptFileText}"
+            TextColor="White"
+            SemanticProperties.Hint="Selects the file to encrypt"
+            BackgroundColor="{AppThemeBinding Light={StaticResource Red900Accent}, Dark={StaticResource Red400Accent}}"
+            HorizontalOptions="FillAndExpand">
+        </Button>
+        <Button
+            x:Name="DecryptBtn"
+            FontSize="20"
+            Text="{x:Static local:Localization.DecryptFileText}"
+            TextColor="White"
+            SemanticProperties.Hint="Selects the file to decrypt"
+            BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource Primary}}"
+            HorizontalOptions="FillAndExpand" />-->
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
