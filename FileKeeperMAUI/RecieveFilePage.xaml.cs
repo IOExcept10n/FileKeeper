@@ -22,7 +22,7 @@ public partial class RecieveFilePage : ContentPage
         // Initialize a timer to get new time seed every update. Every reset old qr code will be removed.
         currentTimeSeed = RecieveFilePage.RoundUp(DateTime.UtcNow, TimeSpan.FromMinutes(2));
         System.Timers.Timer timer = new System.Timers.Timer();
-        double minutes = DateTime.UtcNow.Minute + DateTime.UtcNow.Second / 60.0;
+        double minutes = DateTime.UtcNow.Minute + (DateTime.UtcNow.Second / 60.0);
         double adjust = 2 - (minutes % 2);
         if (adjust < 1) adjust += 2;
         timer.Interval = adjust * 60 * 1000;
@@ -35,7 +35,7 @@ public partial class RecieveFilePage : ContentPage
 
     private void TimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
-        (sender as System.Timers.Timer).Interval = 2 * 1000;
+        (sender as System.Timers.Timer)!.Interval = 2 * 1000;
         currentTimeSeed = RecieveFilePage.RoundUp(DateTime.UtcNow, TimeSpan.FromMinutes(2));
     }
 
@@ -118,41 +118,43 @@ public partial class RecieveFilePage : ContentPage
 
             bool endOfReading = false;
             // Stage 3: Start TCP connection to get a file.
-            TCPManager mgr = new TCPManager();
-            // Prepare to notify user about updates.
-            mgr.FileStatusUpdated = async (_, e) =>
+            TCPManager mgr = new TCPManager
             {
-                switch (e.Result)
+                // Prepare to notify user about updates.
+                FileStatusUpdated = async (_, e) =>
                 {
-                    case SendResult.Failure:
-                        {
-                            await DisplayAlert(Localization.FileErrorTitle, Localization.FileReceivingError, "OK");
-                            break;
-                        }
-                    case SendResult.Progress:
-                        {
-                            await Dispatcher.DispatchAsync(() =>
+                    switch (e.Result)
+                    {
+                        case SendResult.Failure:
                             {
-                                FileSendingProgress.Progress = e.Progress;
-                                QRHint.Text =
+                                await DisplayAlert(Localization.FileErrorTitle, Localization.FileReceivingError, "OK");
+                                break;
+                            }
+                        case SendResult.Progress:
+                            {
+                                await Dispatcher.DispatchAsync(() =>
+                                {
+                                    FileSendingProgress.Progress = e.Progress;
+                                    QRHint.Text =
 #if DEBUG
                                 builder.ToString() + 
 #endif
-                                $"{Localization.FileProgress} {e.FileSize * e.Progress / 1024:0.##} / {e.FileSize / 1024.0:0.##} Kb";
-                            });
-                            break;
-                        }
-                    case SendResult.Success:
-                        {
-                            await Dispatcher.DispatchAsync(async () =>
+                                    $"{Localization.FileProgress} {e.FileSize * e.Progress / 1024:0.##} / {e.FileSize / 1024.0:0.##} Kb";
+                                });
+                                break;
+                            }
+                        case SendResult.Success:
                             {
-                                QRHint.Text = $"{Localization.FileSaved}";
-                                FileDescriptionFrame.IsVisible = false;
-                                await MainPage.ShowToast(Localization.FileSaved);
-                            });
-                            endOfReading = true;
-                            break;
-                        }
+                                await Dispatcher.DispatchAsync(async () =>
+                                {
+                                    QRHint.Text = $"{Localization.FileSaved}";
+                                    FileDescriptionFrame.IsVisible = false;
+                                    await MainPage.ShowToast(Localization.FileSaved);
+                                });
+                                endOfReading = true;
+                                break;
+                            }
+                    }
                 }
             };
             var privateKey = Properties.Resources.Rfile;
@@ -189,7 +191,7 @@ public partial class RecieveFilePage : ContentPage
                 await Dispatcher.DispatchAsync(() =>
                 {
                     QRHint.Text = new StringBuilder()
-                    .Append($"Файл {fileName} Успешно передан!")
+                    .Append("Файл ").Append(fileName).Append(" Успешно передан!")
                     .ToString();
                     FileDescriptionFrame.IsVisible = false;
                 });
