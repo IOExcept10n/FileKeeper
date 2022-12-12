@@ -6,7 +6,7 @@
              x:Class="FileKeeperMAUI.ScanQRPage"
              Title="ScanQRPage">
     <VerticalStackLayout>
-        <!--<Label 
+        <Label 
                 x:Name="QRHint"
                 Text="{x:Static local:Localization.RecieveFilePageText}"
                 FontSize="18"
@@ -16,8 +16,8 @@
         <zxing:CameraBarcodeReaderView
                 Margin="0,100,0,0"
                 WidthRequest="400"
-                HeightRequest="400"
+                HeightRequest="500"
                 x:Name="MainReader"
-                BarcodesDetected="MainReader_BarcodesDetected"/>-->
+                BarcodesDetected="MainReader_BarcodesDetected"/>
     </VerticalStackLayout>
 </ContentPage>

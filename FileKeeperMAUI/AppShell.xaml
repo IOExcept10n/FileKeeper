@@ -16,15 +16,19 @@
         -->
         <ShellContent Title="{x:Static local:Localization.HomePageShellTitle}"
                       Icon="home.png"
+                      Route="shell"
                       ContentTemplate="{DataTemplate local:MainPage}" />
         <ShellContent Title="{x:Static local:Localization.EncryptionPageShellTitle}"
                       Icon="shield.png"
+                      Route="shell/encrypt"
                       ContentTemplate="{DataTemplate local:EncryptionPage}" />
         <ShellContent Title="{x:Static local:Localization.SendFilePageTitle}"
                       Icon="send.png"
+                      Route="shell/sendfile"
                       ContentTemplate="{DataTemplate local:SendFilePage}" />
         <ShellContent Title="{x:Static local:Localization.RecieveFilePageTitle}"
                       Icon="download.png"
+                      Route="shell/receivefile"
                       ContentTemplate="{DataTemplate local:RecieveFilePage}" />
 
     </FlyoutItem>

@@ -34,6 +34,7 @@ namespace FileKeeperMAUI
         {
             InitializeComponent();
             InitDirectories();
+            Routing.RegisterRoute("shell/scanqr", typeof(ScanQRPage));
         }
 
         public async void InitDirectories()

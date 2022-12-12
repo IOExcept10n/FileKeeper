@@ -60,6 +60,7 @@ public partial class RecieveFilePage : ContentPage
             await MainPage.ShowToast("QR code has been founded!");
             ContentStack.Remove(MainReader);
             MainReader.BarcodesDetected -= MainReader_BarcodesDetected;
+            //await Shell.Current.GoToAsync("shell/scanqr", );
         });
         // Get a time key to first stage of a QR decryption.
         byte[] now = BitConverter.GetBytes(currentTimeSeed.ToBinary());
@@ -68,7 +69,7 @@ public partial class RecieveFilePage : ContentPage
         // Decrypts QR text with a Caesar algorithm.
         string decCaes = decVig.DecryptWithCaesar();
         // Next action we should parse a string to get new information.
-        // We know that it can be randpornom QR code which cannot be read.
+        // We know that it can be random QR code which cannot be read.
         try
         {
             // Stage 1: split all text by lines.
@@ -200,7 +201,7 @@ public partial class RecieveFilePage : ContentPage
             {
                 await Dispatcher.DispatchAsync(() =>
                 {
-                    QRHint.Text = "Не удалось получить файл, пожалйуста, попробуйте ещё раз.";
+                    QRHint.Text = "Не удалось получить файл, пожалуйста, попробуйте ещё раз.";
                     FileDescriptionFrame.IsVisible = false;
                 });
             }
