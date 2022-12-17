@@ -68,7 +68,7 @@ public partial class RecieveFilePage : ContentPage
         // Decrypts QR text with a Caesar algorithm.
         string decCaes = decVig.DecryptWithCaesar();
         // Next action we should parse a string to get new information.
-        // We know that it can be randpornom QR code which cannot be read.
+        // We know that it can be random QR code which cannot be read.
         try
         {
             // Stage 1: split all text by lines.
@@ -77,25 +77,6 @@ public partial class RecieveFilePage : ContentPage
             int pos = 0;
             string ak64 = lines[pos++];
             string fileName = lines[pos++];
-            //byte[] d = Convert.FromBase64String(lines[pos++]);
-            //byte[] dp = Convert.FromBase64String(lines[pos++]);
-            //byte[] dq = Convert.FromBase64String(lines[pos++]);
-            //byte[] exp = Convert.FromBase64String(lines[pos++]);
-            //byte[] invQ = Convert.FromBase64String(lines[pos++]);
-            //byte[] modulus = Convert.FromBase64String(lines[pos++]);
-            //byte[] p = Convert.FromBase64String(lines[pos++]);
-            //byte[] q = Convert.FromBase64String(lines[pos++]);
-            //RSAParameters parameters = new RSAParameters()
-            //{
-            //    D = d,
-            //    DP = dp,
-            //    DQ = dq,
-            //    Exponent = exp,
-            //    InverseQ = invQ,
-            //    Modulus = modulus,
-            //    P = p,
-            //    Q = q
-            //};
             // Stage 3: Get ip addresses from the string.
             IPAddress[] addresses = new IPAddress[lines.Count - pos];
             for (int i = pos; i < lines.Count; i++)
