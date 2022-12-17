@@ -181,7 +181,7 @@ public partial class RecieveFilePage : ContentPage
             {
                 await Dispatcher.DispatchAsync(() =>
                 {
-                    QRHint.Text = "Не удалось получить файл, пожалйуста, попробуйте ещё раз.";
+                    QRHint.Text = "Не удалось получить файл, пожалуйста, попробуйте ещё раз.";
                     FileDescriptionFrame.IsVisible = false;
                 });
             }
