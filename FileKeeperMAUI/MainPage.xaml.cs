@@ -46,7 +46,7 @@ namespace FileKeeperMAUI
 #if ANDROID
                 DefaultSavePath = "/storage/emulated/0/FileKeeper/";
 #elif WINDOWS
-                DefaultSavePath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+                DefaultSavePath = (Path.GetDirectoryName(Environment.ProcessPath) + "/FileKeeper/").Replace("\\", "/");
 #endif
                 if (DefaultSavePath != null)
                 {

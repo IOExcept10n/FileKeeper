@@ -146,6 +146,7 @@ public partial class RecieveFilePage : ContentPage
 #if DEBUG
             int j = 0;
 #endif
+            Task receive = null;
             foreach (var ip in addresses)
             {
                 try
@@ -160,13 +161,14 @@ public partial class RecieveFilePage : ContentPage
                         FileDescriptionFrame.IsVisible = true;
                     });
 #endif
-                    if (ping != -1) await mgr.RunEncryptedReceivingClient(ip, 8005, MainPage.DefaultSavePath + "TransferedFiles/" + fileName, "");
+                    if (ping != -1) receive = mgr.RunEncryptedReceivingClient(ip, 8005, MainPage.DefaultSavePath + "TransferedFiles/" + fileName, "");
                     if (endOfReading) break;
                 }
                 catch
                 {
                 }
             }
+            await receive?.WaitAsync(CancellationToken.None);
             if (endOfReading)
             {
                 await Dispatcher.DispatchAsync(() =>
@@ -182,6 +184,9 @@ public partial class RecieveFilePage : ContentPage
                 await Dispatcher.DispatchAsync(() =>
                 {
                     QRHint.Text = "Не удалось получить файл, пожалуйста, попробуйте ещё раз.";
+#if DEBUG
+                    QRHint.Text += $" Использованные IP-адреса: {string.Join<IPAddress>(", ", addresses)}";
+#endif
                     FileDescriptionFrame.IsVisible = false;
                 });
             }
